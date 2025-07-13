@@ -35,7 +35,7 @@
     <view class="container-btn">
       <button class="submit-btn" type="primary" @click="submitForm">提交</button>
     </view>
-    
+
   </view>
 </template>
 
@@ -197,7 +197,6 @@ uni-icon {
   width: 100%;
   position: fixed;
   bottom: 0;
-
 }
 
 .submit-btn {

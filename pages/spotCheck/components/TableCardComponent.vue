@@ -122,9 +122,9 @@ const cancelTask = (task) => {
 .task-card {
   background-color: #fff;
   border-radius: 12rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05); */
   margin-bottom: 24rpx;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .card-header {

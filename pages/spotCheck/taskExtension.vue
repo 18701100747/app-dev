@@ -197,6 +197,7 @@ uni-icon {
   border-radius: 12rpx;
   margin-bottom: 24rpx;
   overflow: hidden;
+  width: 100%;
 }
 
 .container-btn {
@@ -207,7 +208,6 @@ uni-icon {
   width: 100%;
   position: fixed;
   bottom: 0;
-
 }
 
 .submit-btn {
