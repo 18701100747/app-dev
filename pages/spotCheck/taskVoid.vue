@@ -30,12 +30,12 @@
           </uni-forms-item>
         </uni-forms>
       </view>
-
-      <view class="container">
-        <button class="submit-btn" type="primary" @click="submitForm">提交</button>
-      </view>
     </view>
 
+    <view class="container-btn">
+      <button class="submit-btn" type="primary" @click="submitForm">提交</button>
+    </view>
+    
   </view>
 </template>
 
@@ -186,9 +186,21 @@ uni-icon {
   border-radius: 12rpx;
   margin-bottom: 24rpx;
   overflow: hidden;
+  width: 100%;
+}
+
+.container-btn {
+  background-color: #fff;
+  border-radius: 12rpx;
+  margin-bottom: 24rpx;
+  overflow: hidden;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
 }
 
 .submit-btn {
-  margin-top: 30rpx;
+  margin: 30rpx 24rpx 0 24rpx;
 }
 </style>
