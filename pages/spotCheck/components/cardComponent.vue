@@ -44,6 +44,14 @@
           <text class="info-label">点检进度：</text>
           <text class="info-value">{{ cardData.progressRate }}</text>
         </view>
+        <view class="info-row">
+          <text class="info-label">状态：</text>
+          <text class="info-value">{{ cardData.progressRate }}</text>
+        </view>
+        <view class="info-row">
+          <text class="info-label">任务编号：</text>
+          <text class="info-value">{{ cardData.progressRate }}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -85,8 +93,6 @@ const getProgressClass = (progress) => {
 .task-card {
   background-color: #fff;
   border-radius: 12rpx;
-  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
-  margin-bottom: 24rpx;
   overflow: hidden;
 }
 
