@@ -1,3 +1,4 @@
+
 {
     "globalStyle": {
         "backgroundColor": "#F8F8F8",
@@ -47,15 +48,14 @@
                 "navigationBarTitleText": "uni-app"
             }
         },
-		{
-			"path" : "pages/login/singleLogin",
-			"style" : 
-			{
+        {
+            "path": "pages/login/singleLogin",
+            "style": {
                 "navigationStyle": "custom",
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		},
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
         {
             "path": "pages/home/home",
             "style": {
@@ -234,7 +234,7 @@
                 "navigationStyle": "custom",
                 "enablePullDownRefresh": true
             }
-        }, 
+        },
         {
             "path": "pages/spotCheck/taskVoid",
             "style": {
@@ -242,12 +242,22 @@
                 "navigationStyle": "custom",
                 "enablePullDownRefresh": true
             }
+        },
+
+        {
+            "path": "pages/abc/abc/list",
+            "style": {
+                "navigationBarTitleText": "abc"
+            }
         }
+
+
     ],
     "easycom": {
         "custom": {
             "^sys-dev-(.*)": "@/pages/dev/$1/form.vue",
-            "^sys-jianyi-(.*)": "@/pages/jianyi/$1/form.vue"
+            "^sys-jianyi-(.*)": "@/pages/jianyi/$1/form.vue",
+            "^sys-inspection-(.*)": "@/pages/inspection/$1/form.vue"
         }
     },
     "uniIdRouter": {

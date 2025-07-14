@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view class="search-box">
-			<view class="search-btn" @tap="handleSearch">筛选<uni-icons type="ant-design:filter-filled" :size="12"
+			<view class="search-btn" @tap="handleSearch">筛选11<uni-icons type="ant-design:filter-filled" :size="12"
 					color="#253954" custom-prefix="antfont"></uni-icons></view>
 			<view style="position: relative;">
 				<view class="search-btn" :class="showTree?'active':''" v-if="categoryConfigs" @tap="handleTreeClick">

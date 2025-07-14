@@ -1,5 +1,7 @@
+
 export const componentType = {
 	input: 'Input',
+	inputX: 'InputX',
 	inputNumber: 'InputNumber',
 	picker: 'Picker',
 	associatePicker: 'AssociatePicker',
