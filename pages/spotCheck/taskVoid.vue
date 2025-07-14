@@ -186,7 +186,6 @@ uni-icon {
   border-radius: 12rpx;
   margin-bottom: 24rpx;
   overflow: hidden;
-  width: 100%;
 }
 
 .container-btn {

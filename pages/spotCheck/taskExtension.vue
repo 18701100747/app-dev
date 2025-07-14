@@ -18,27 +18,27 @@
         <view class="padding-text">基本信息</view>
         <CardComponent :cardData="cardData"></CardComponent>
       </view>
-    </view>
 
-    <!-- 表单组件 -->
-    <view class="container">
-      <uni-forms ref="form" :modelValue="formData" :rules="rules">
-        <uni-forms-item label="原点检要求完成时间：" name="originalTime">
-          <uni-easyinput type="text" v-model="formData.originalTime" disabled />
-        </uni-forms-item>
+      <!-- 表单组件 -->
+      <view class="container">
+        <uni-forms ref="form" :modelValue="formData" :rules="rules">
+          <uni-forms-item label="原点检要求完成时间：" name="originalTime">
+            <uni-easyinput type="text" v-model="formData.originalTime" disabled />
+          </uni-forms-item>
 
-        <uni-forms-item label="预计点检完成时间：" name="expectedTime" required>
-          <uni-datetime-picker type="datetime" v-model="formData.expectedTime" placeholder="请选择时间" />
-        </uni-forms-item>
+          <uni-forms-item label="预计点检完成时间：" name="expectedTime" required>
+            <uni-datetime-picker type="datetime" v-model="formData.expectedTime" placeholder="请选择时间" />
+          </uni-forms-item>
 
-        <uni-forms-item label="办理时间：" name="handleTime" required>
-          <uni-datetime-picker type="datetime" v-model="formData.handleTime" placeholder="请选择时间" />
-        </uni-forms-item>
+          <uni-forms-item label="办理时间：" name="handleTime" required>
+            <uni-datetime-picker type="datetime" v-model="formData.handleTime" placeholder="请选择时间" />
+          </uni-forms-item>
 
-        <uni-forms-item label="任务延期原因：" name="reason" required>
-          <uni-easyinput type="textarea" v-model="formData.reason" placeholder="请输入延期原因" autoHeight />
-        </uni-forms-item>
-      </uni-forms>
+          <uni-forms-item label="任务延期原因：" name="reason" required>
+            <uni-easyinput type="textarea" v-model="formData.reason" placeholder="请输入延期原因" autoHeight />
+          </uni-forms-item>
+        </uni-forms>
+      </view>
     </view>
 
     <view class="container-btn">
@@ -197,7 +197,6 @@ uni-icon {
   border-radius: 12rpx;
   margin-bottom: 24rpx;
   overflow: hidden;
-  width: 100%;
 }
 
 .container-btn {
