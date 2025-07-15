@@ -1,4 +1,3 @@
-
 <template>
 	<SimpleList ref="listRef" :listProps="listProps"></SimpleList>
 </template>
@@ -26,6 +25,3 @@ onShow(()=>{
 </script>
 
 <style></style>
-
-  
-  

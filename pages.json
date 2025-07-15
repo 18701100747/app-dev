@@ -47,15 +47,14 @@
                 "navigationBarTitleText": "uni-app"
             }
         },
-		{
-			"path" : "pages/login/singleLogin",
-			"style" : 
-			{
+        {
+            "path": "pages/login/singleLogin",
+            "style": {
                 "navigationStyle": "custom",
-				"navigationBarTitleText" : "",
-				"enablePullDownRefresh" : false
-			}
-		},
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+        },
         {
             "path": "pages/home/home",
             "style": {
@@ -228,14 +227,6 @@
             }
         },
         {
-            "path": "pages/spotCheck/taskPart/index",
-            "style": {
-                "navigationBarTitleText": "点检部件",
-                "navigationStyle": "custom",
-                "enablePullDownRefresh": true
-            }
-        },
-        {
             "path": "pages/spotCheck/taskExtension",
             "style": {
                 "navigationBarTitleText": "任务延期",
@@ -251,15 +242,18 @@
                 "enablePullDownRefresh": true
             }
         },
-
         {
-            "path": "pages/abc/abc/list",
+            "path": "pages/inspection/CheckArea/list",
             "style": {
-                "navigationBarTitleText": "abc"
+                "navigationBarTitleText": "点检任务"
+            }
+        },
+        {
+            "path": "pages/inspection/CheckArea/container",
+            "style": {
+                "navigationBarTitleText": "新增"
             }
         }
-
-
     ],
     "easycom": {
         "custom": {

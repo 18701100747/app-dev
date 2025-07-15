@@ -29,12 +29,12 @@ const systemList = [
 		iconType: 'icon-saoyisao',
 		url: ''
 	},
-  {
-    title: "点检",
-    type: 'spotCheck',
-    iconType: "icon-yiban10",
-    url: "/pages/spotCheck/index?type=spotCheck",
-  },
+  // {
+  //   title: "点检",
+  //   type: 'spotCheck',
+  //   iconType: "icon-yiban10",
+  //   url: "/pages/spotCheck/index?type=spotCheck",
+  // },
 ];
 </script>
 
