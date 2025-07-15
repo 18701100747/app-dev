@@ -1,4 +1,3 @@
-
 {
     "globalStyle": {
         "backgroundColor": "#F8F8F8",
@@ -48,14 +47,15 @@
                 "navigationBarTitleText": "uni-app"
             }
         },
-        {
-            "path": "pages/login/singleLogin",
-            "style": {
+		{
+			"path" : "pages/login/singleLogin",
+			"style" : 
+			{
                 "navigationStyle": "custom",
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-        },
+				"navigationBarTitleText" : "",
+				"enablePullDownRefresh" : false
+			}
+		},
         {
             "path": "pages/home/home",
             "style": {
@@ -223,6 +223,14 @@
             "path": "pages/spotCheck/taskArea/index",
             "style": {
                 "navigationBarTitleText": "点检区域",
+                "navigationStyle": "custom",
+                "enablePullDownRefresh": true
+            }
+        },
+        {
+            "path": "pages/spotCheck/taskPart/index",
+            "style": {
+                "navigationBarTitleText": "点检部件",
                 "navigationStyle": "custom",
                 "enablePullDownRefresh": true
             }
