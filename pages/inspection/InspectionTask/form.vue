@@ -10,7 +10,7 @@ import SimpleForm from '@/components/simple-form/SimpleForm.vue';
 import { formProps } from './config/index.js';
 import { FromPageType } from "@/common/enums/form.ts";
 import { listProps } from './config/index.js'
-import { addInspectionDomainTable, updateInspectionDomainTable, getInspectionDomainTable } from '@/common/api/inspection/CheckArea/index.js';
+import { addInspectionTaskInfo, updateInspectionTaskInfo, getInspectionTaskInfo } from '@/common/api/inspection/InspectionTask/index.js';
 import { cloneDeep } from '@/utils/helper/utils.js';
 import { handlerFormPermission } from "@/common/hooks/form.ts";
 import { setFormPropsAuth } from '@/utils/simpleForm/changeJson.js'
@@ -71,7 +71,7 @@ async function setForm(){
   if (formConfig.type == FromPageType.EDIT||formConfig.type  == FromPageType.VIEW) { 
       const {
         data
-      } = await getInspectionDomainTable(formConfig.id);
+      } = await getInspectionTaskInfo(formConfig.id);
       if (data) {
         await formRef.value.setFormData({...props.formModel, ...data})
       }
@@ -101,7 +101,7 @@ async function loadForm(val){
   formConfig.id = id;
   const {
     data
-  } = await getInspectionDomainTable(id);
+  } = await getInspectionTaskInfo(id);
   if (data) {
     await formRef.value.setFormData(data)
   }
@@ -120,7 +120,7 @@ async function setFormDataFromId(rowId, skipUpdate) {
     try {
       const {
         data
-      } = await getInspectionDomainTable(rowId);
+      } = await getInspectionTaskInfo(rowId);
       if (skipUpdate) {
           return data;
       }
@@ -163,10 +163,10 @@ let formModelIdVal = reactive({
     const formData = await formRef.value.getFormData();
 		if(formData[rowKey]){
       formConfig.id = formData[rowKey]
-			await updateInspectionDomainTable(formData);
+			await updateInspectionTaskInfo(formData);
 		}
 		else{
-			let res = await addInspectionDomainTable(formData);
+			let res = await addInspectionTaskInfo(formData);
       formConfig.id = res.data
 		}
     formModelIdVal = await setFormDataFromId(formConfig.id, true);

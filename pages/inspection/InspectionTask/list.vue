@@ -5,7 +5,7 @@
 <script setup>
 import { ref } from 'vue';
 import { onReachBottom, onPullDownRefresh,onShow } from '@dcloudio/uni-app'; //不支持onLoad
-import SimpleList from '@/components/simple-list/SimpleList.vue';
+import SimpleList from '../components/simple-list/spotCheckSimpleList.vue';
 import { listProps } from './config/index.js'
 
 

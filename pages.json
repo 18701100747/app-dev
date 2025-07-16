@@ -243,13 +243,13 @@
             }
         },
         {
-            "path": "pages/inspection/CheckArea/list",
+            "path": "pages/inspection/InspectionTask/list",
             "style": {
                 "navigationBarTitleText": "点检任务"
             }
         },
         {
-            "path": "pages/inspection/CheckArea/container",
+            "path": "pages/inspection/InspectionTask/container",
             "style": {
                 "navigationBarTitleText": "新增"
             }
