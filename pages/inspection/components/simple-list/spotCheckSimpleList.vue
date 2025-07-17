@@ -1,8 +1,8 @@
 <template>
 	<view class="container">
-		<view class="search-box">
-			<!-- <view class="search-btn" @tap="handleSearch">筛选<uni-icons type="ant-design:filter-filled" :size="12"
-					color="#253954" custom-prefix="antfont"></uni-icons></view> -->
+		<!-- <view class="search-box">
+			<view class="search-btn" @tap="handleSearch">筛选<uni-icons type="ant-design:filter-filled" :size="12"
+					color="#253954" custom-prefix="antfont"></uni-icons></view>
 			<view style="position: relative;">
 				<view class="search-btn" :class="showTree ? 'active' : ''" v-if="categoryConfigs" @tap="handleTreeClick">
 					{{ categoryConfigs.menuName }}<uni-icons :type="showTree ? 'ant-design:caret-up' : 'ant-design:caret-down'"
@@ -13,7 +13,7 @@
 					:itemId="categoryConfigs.dictionaryItemId" :apiConfig="categoryConfigs.apiConfig"
 					@change="handleTreeChange"></uni-node-tree>
 			</view>
-		</view>
+		</view> -->
 		<template v-for="(task, i) in tableData">
 			<view class="container">
 				<view v-for="col in authColumnConfigs" :key="task.id" class="task-card">
@@ -73,7 +73,7 @@
 		</template>
 		<uni-load-more v-if="tableData.length > 10" iconType="auto" :status="loadMoreState" />
 
-		<uni-drawer ref="drawerRef" mode="right" width="80%" :mask-click="true" @change="handleChange">
+		<!-- <uni-drawer ref="drawerRef" mode="right" width="80%" :mask-click="true" @change="handleChange">
 			<view class="filter-title">
 				<view class="before"></view>筛选
 			</view>
@@ -88,11 +88,7 @@
 				<button class="btn" @tap="closeDrawer" type="primary" style="background: #F3F4F8;color:#B7BACA">取消</button>
 				<button class="btn" @tap="searchClick" type="primary" style="background: #5E95FF;">确定</button>
 			</view>
-		</uni-drawer>
-		<!-- <uni-fab ref="fab" :pattern="pattern" v-if="isSearch && hasAddBtn" horizontal="right" vertical="bottom"
-			direction="horizontal" @tap="trigger" /> -->
-		<!-- <uni-fab ref="fab" :pattern="pattern" v-if="!isSearch" horizontal="right" vertical="bottom" direction="horizontal"
-			@fabClick="fabClick" /> -->
+		</uni-drawer> -->
 	</view>
 </template>
 

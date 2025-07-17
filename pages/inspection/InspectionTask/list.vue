@@ -1,7 +1,7 @@
 <template>
   <view class="container">
     <!-- 顶部导航栏 -->
-    <view class="header">
+    <!-- <view class="header">
       <view class="nav">
         <view>
           <uni-icons type="back" size="20" @tap="clickLeft">返回</uni-icons>
@@ -13,7 +13,7 @@
           </button>
         </view>
       </view>
-    </view>
+    </view> -->
 
     <!-- 第一层选项卡 -->
     <view class="first-level-tabs">
@@ -99,8 +99,6 @@
       </view>
     </view>
   </view>
-
-
 </template>
 
 <script setup>
@@ -136,6 +134,19 @@ onShow(()=>{
 	listRef.value.reload();
 }) 
 
+// 返回上一页
+const clickLeft = () => {
+  // uni.navigateTo({
+  //   url: "/pages/home/home"
+  // })
+  uni.switchTab({
+    url: '/pages/home/home'
+  });
+}
+const clickRight = () => {
+
+}
+
 // 切换第一层选项卡
 const switchFirstTab = (tab) => {
   activeFirstTab.value = tab;
@@ -159,20 +170,20 @@ const switchSecondTab = (tab) => {
   background-color: #f5f5f5;
 }
 
-.header {
+/* .header {
   background-color: #F3F3F3;
   min-height: 64rpx;
   padding: 16rpx;
-}
+} */
 
-.nav {
+/* .nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-uni-icon {
+/* uni-icon {
   height: 27rpx;
   color: #253954;
 }
@@ -184,7 +195,7 @@ uni-icon {
   font-weight: bold;
   color: #253954;
   line-height: 42rpx;
-}
+} */
 
 .action-btn {
   margin: 0 10rpx;
@@ -202,6 +213,7 @@ uni-icon {
   background-color: #fff;
   border-bottom: 1px solid #eee;
   margin: 0 32rpx;
+	border-radius: 12rpx;
 }
 
 .first-tab-item {
@@ -236,6 +248,7 @@ uni-icon {
   background-color: #fff;
   margin-top: 10px;
   border-bottom: 1px solid #eee;
+	border-radius: 12rpx;
 }
 
 .second-tab-item {

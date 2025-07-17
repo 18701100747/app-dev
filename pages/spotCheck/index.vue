@@ -256,6 +256,7 @@ uni-icon {
   background-color: #fff;
   border-bottom: 1px solid #eee;
   margin: 0 32rpx;
+  border-radius: 12rpx;
 }
 
 .first-tab-item {
@@ -290,6 +291,7 @@ uni-icon {
   background-color: #fff;
   margin-top: 10px;
   border-bottom: 1px solid #eee;
+  border-radius: 12rpx;
 }
 
 .second-tab-item {

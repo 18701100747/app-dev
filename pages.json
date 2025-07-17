@@ -246,6 +246,8 @@
             "path": "pages/inspection/InspectionTask/list",
             "style": {
                 "navigationBarTitleText": "点检任务",
+                "backgroundColor": "#ffffff",
+                 "navigationBarBackgroundColor": "#F3F3F3",
                 // "navigationStyle": "custom",
                 "enablePullDownRefresh": true
             }
