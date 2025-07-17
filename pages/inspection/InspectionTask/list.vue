@@ -50,13 +50,13 @@
         <view class="second-tab-content">
           <view v-if="activeSecondTab === 'unclaimed'" class="task-list">
             <!-- 今日任务-待认领任务列表 -->
-       	<SimpleList ref="listRef" :listProps="listProps"></SimpleList>
+       	<SimpleList ref="listRef" :listProps="listProps" :receiveStatus="0"></SimpleList>
           </view>
 
           <view v-if="activeSecondTab === 'claimed'" class="task-list">
             <!-- 今日任务-已认领任务列表 -->
             <view>
-              今日任务-已认领
+            	<SimpleList ref="listRef" :listProps="listProps" :receiveStatus="1"></SimpleList>
             </view>
           </view>
         </view>
@@ -64,38 +64,7 @@
 
       <!-- 已办任务内容 -->
       <view v-if="activeFirstTab === 'alreadyDone'" class="today-tasks">
-        <!-- 第二层选项卡 -->
-        <view class="second-level-tabs">
-          <view class="second-tab-item" :class="{ 'active': activeSecondTab === 'unclaimed' }"
-            @click="switchSecondTab('unclaimed')">
-            <text>待认领</text>
-            <text>({{ alreadyDoneUnclaimedCount }})</text>
-            <!-- <text class="badge" v-if="alreadyDoneUnclaimedCount > 0">{{ alreadyDoneUnclaimedCount }}</text> -->
-          </view>
-          <view class="second-tab-item" :class="{ 'active': activeSecondTab === 'claimed' }"
-            @click="switchSecondTab('claimed')">
-            <text>已认领</text>
-            <text>({{ alreadyDoneClaimedCount }})</text>
-            <!-- <text class="badge" v-if="alreadyDoneClaimedCount > 0">{{ alreadyDoneClaimedCount }}</text> -->
-          </view>
-        </view>
-
-        <!-- 第二层选项卡内容 -->
-        <view class="second-tab-content">
-          <view v-if="activeSecondTab === 'unclaimed'" class="task-list">
-            <!-- 已办任务内容-待认领任务列表 -->
-            <view>
-              已办任务内容-待认领
-            </view>
-          </view>
-
-          <view v-if="activeSecondTab === 'claimed'" class="task-list">
-            <!-- 已办任务内容-已认领任务列表 -->
-            <view>
-              已办任务内容-已认领
-            </view>
-          </view>
-        </view>
+				      	<SimpleList ref="listRef" :listProps="listProps" processStatusList="processStatusList"></SimpleList>
       </view>
     </view>
   </view>

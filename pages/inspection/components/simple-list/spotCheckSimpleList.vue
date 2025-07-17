@@ -21,9 +21,16 @@
 					<view class="card-header">
 						<view>
 							<text class="task-name">{{ task.planId }}</text>
-							<text :class="['status-text', getStatusClass(task.status)]">{{ task.status }}</text>
+							<text :class="['status-text', getStatusClass(task.receiveStatus)]">{{ task.receiveStatus === 0 ? "待认领" :
+								task.receiveStatus === 1 ? "已认领" : "" }}</text>
 						</view>
-						<text :class="['progress-text', getProgressClass(task.progress)]">{{ task.progress }}</text>
+						<text :class="['progress-text', getProgressClass(task.processStatus)]">{{ task.processStatus === 0 ? "未开始" :
+							task.processStatus === 1 ? "进行中" :
+								task.processStatus === 2 ? "已完成" :
+									task.processStatus === 3 ? "已延期" :
+										task.processStatus === 4 ? "已作废" :
+											""
+						}}</text>
 					</view>
 
 					<!-- 任务详情 -->
@@ -54,17 +61,18 @@
 						</view>
 						<view class="info-row">
 							<text class="info-label">计划结束时间：</text>
-							<text class="info-value">{{ task.processStatus }}</text>
+							<text class="info-value">{{ task.receiveTime }}</text>
 						</view>
 						<view class="info-row last-label">
 							<text class="info-label">点检进度：</text>
 							<text class="info-value">{{ task.inspectionResult }}</text>
 						</view>
 					</view>
-
 					<!-- 操作按钮 -->
-					<!-- <view v-if="task.progress === '未开始' && props.buttonShow" class="card-footer"> -->
-					<view  class="card-footer">
+					<view v-if="task.receiveStatus === 0 && props.buttonShow" class="card-footer">
+						<button class="action-btn primary" @click="startInspection(task)">认领</button>
+					</view>
+					<view v-if="task.receiveStatus === 1 && props.buttonShow" class="card-footer">
 						<button class="action-btn primary" @click="startInspection(task)">开始点检</button>
 						<button class="action-btn" @click="delayTask(task)">任务延期</button>
 						<button class="action-btn danger" @click="cancelTask(task)">任务作废</button>
@@ -141,8 +149,20 @@ const props = defineProps({
 		default: () => {
 			return '';
 		}
-	}
+	},
+	receiveStatus: {
+		type: Number,
+		// default: () => {
+		// 	return 0;
+		// },
+		required: false,
+	},
+	processStatusList: {
+		type: String,
+		required: false,
+	},
 });
+console.log("props", props)
 const buttonSelector = ref()
 const drawerRef = ref();
 const fabRef = ref();
@@ -236,6 +256,12 @@ async function fetch(isRefresh) {
 		}
 		params.limit = PAGE_PARAM.limit;
 		params.size = PAGE_PARAM.size;
+		if (props.receiveStatus) {
+			params.receiveStatus = props.receiveStatus;
+		}
+		if (props.processStatusList) {
+			params.processStatusList = [2, 4]
+		}
 		if (categoryConfigs.listFieldName) params.params[categoryConfigs.listFieldName] = treeData.value
 		const result = await api(params, header);
 		total.value = result.data.total;
@@ -522,17 +548,18 @@ function getButtonConfigs() {
 
 const getStatusClass = (status) => {
 	return {
-		'待认领': 'status-waiting',
-		'已认领': 'status-claimed'
+		0: 'status-waiting',
+		1: 'status-claimed'
 	}[status] || '';
 };
 
 const getProgressClass = (progress) => {
 	return {
-		'点检中': 'progress1',
-		'未开始': 'progress2',
-		'已完成': 'progress3',
-		'已延期': 'progress4',
+		0: 'progress2',
+		1: 'progress1',
+		2: 'progress3',
+		3: 'progress4',
+		4: 'progress4',
 	}[progress] || '';
 };
 

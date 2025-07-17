@@ -129,6 +129,13 @@ export const listProps = {
   //     }
   // ],
     columnConfigs: [
+      {
+        title: 'id',
+        mainField:false,
+			  showLabel:true,
+        componentType:'Input',
+        field: 'id',
+      },
     {
         title: '计划id',
         mainField:false,
@@ -176,13 +183,27 @@ export const listProps = {
         mainField:false,
 			  showLabel:true,
         componentType:'Select',
-        field: 'processStatus',
+        field: 'receiveTime',
       },{
         title: '点检进度',
         mainField:false,
 			  showLabel:true,
         componentType:'Input',
         field: 'inspectionResult',
+      },
+       {
+        title: '执行状态',
+        mainField:false,
+			  showLabel:true,
+        componentType:'Input',
+        field: 'processStatus',
+      },
+      {
+        title: '认领状态',
+        mainField:false,
+			  showLabel:true,
+        componentType:'Input',
+        field: 'receiveStatus',
       },
   ],
   //是否启用搜索
