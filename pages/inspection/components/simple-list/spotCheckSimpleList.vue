@@ -63,7 +63,8 @@
 					</view>
 
 					<!-- 操作按钮 -->
-					<view v-if="task.progress === '未开始' && props.buttonShow" class="card-footer">
+					<!-- <view v-if="task.progress === '未开始' && props.buttonShow" class="card-footer"> -->
+					<view  class="card-footer">
 						<button class="action-btn primary" @click="startInspection(task)">开始点检</button>
 						<button class="action-btn" @click="delayTask(task)">任务延期</button>
 						<button class="action-btn danger" @click="cancelTask(task)">任务作废</button>
