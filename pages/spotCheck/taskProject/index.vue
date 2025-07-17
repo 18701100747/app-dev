@@ -6,38 +6,39 @@
         <view>
           <uni-icons type="back" size="20" @tap="clickLeft">返回</uni-icons>
         </view>
-        <view class="title">点检部件</view>
+        <view class="title">点检项目</view>
         <view>
-
+          历史记录
         </view>
       </view>
     </view>
 
     <!-- 内容 -->
     <view class="content">
-      <view class="banner">
-        <span>点检设备：</span>
+      <view class="banner-top">
+        <span>点检部件：</span>
         <span>部件1</span>
       </view>
-      <view class="title-box">点检项目(未完成2个)</view>
-      <view class="c-box">
-        <view class="x-header">
-          <view class="x-header-left">点检项目</view>
-          <view class="x-header-right">点检结果</view>
+      <view class="banner-center">
+        <span>点检项目：</span>
+        <span>点检项目1</span>
+      </view>
+      <view class="title-text">
+        检查要求
+      </view>
+      <view class="c-info">XXXXXXXX</view>
+      <view class="t-switch">
+        <view class="t-switch-title">是否跳检：</view>
+        <switch color="#87d887" style="transform: scale(0.7);" :checkd="checkd" @change="checkdChange"></switch>
+      </view>
+      <view class="c-form">
+        <view v-show="!checkd" class="c-form-form">
+          <SimpleForm ref="formRef" :formProps="formConfig.formProps" :isFilter="true" control='add'>
+          </SimpleForm>
         </view>
-        <view class="x-body">
-          <view v-for="item in items" :key="item.type">
-            <view class="x-body-item">
-              <view class="y-item-left">
-                <view class="m-left-type">{{ item.type }}</view>
-                <span>{{ item.title }}</span>
-                <span class="m-left-iType">{{ item.itemType }}</span>
-              </view>
-              <view class="y-item-right" @click="clickRight">
-                <span>{{ item.result }}</span>
-              </view>
-            </view>
-          </view>
+        <view v-show="checkd" class="c-form-area">
+          <view>跳检事由：</view>
+          <textarea :value="textArea" @input="areaChange" style="border: 1px solid #d2d0d0;width: 100%;"></textarea>
         </view>
       </view>
     </view>
@@ -47,15 +48,28 @@
 <script setup lang="ts">
 import { onLoad, onReachBottom } from "@dcloudio/uni-app";
 import { ref, reactive, computed } from "vue";
+import SimpleForm from '@/components/simple-form/SimpleForm.vue';
+import { FromPageType } from "@/common/enums/form.ts";
+import { formProps } from './config/index.js';
 
-const current0 = ref(0);
-const current1 = ref(0);
+const formConfig = reactive({
+  formProps: formProps,
+  id: "",
+  uploadComponentIds: [],
+  type: FromPageType.ADD
+});
 
-const items = reactive([
-  { type: '日检', title: '检查项目1', itemType: '观察项', result: '正常' },
-  { type: '周检', title: '检查项目2', itemType: '指标项', result: '异常' },
-  { type: '月检', title: '检查项目3', itemType: '选择项', result: '未完成' },
-])
+
+const checkd = ref(false)
+const textArea =ref('')
+
+const checkdChange = (event: any) => {
+  checkd.value = event.detail.value
+}
+
+const areaChange = (event: any) => {
+  textArea.value = event.detail.value
+}
 
 
 onLoad((options) => {
@@ -76,13 +90,11 @@ onReachBottom(() => { });
 const clickLeft = () => {
   // console.log('11')
   uni.navigateTo({
-    url: "/pages/spotCheck/taskStart/index"
+    url: "/pages/spotCheck/taskPart/index"
   })
 }
 const clickRight = () => {
-  uni.navigateTo({
-    url: "/pages/spotCheck/taskProject/index"
-  })
+
 }
 
 const onClickItem = (e) => {
@@ -125,36 +137,42 @@ const onClickItem1 = (e) => {
   .content {
     padding: 0.5rem;
 
-    .banner {
-      padding: 0.5rem;
+    .banner-top {
+      padding: 0.5rem 0.2rem;
       background: white;
-      text-align: center;
       border-radius: 0.5rem;
+    }
+
+    .banner-center {
+      margin-top: 0.5rem;
+      padding: 0.5rem 0.2rem;
+      background: white;
+      border-radius: 0.5rem;
+    }
+
+    .title-text {
+      padding: 0.5rem 0.2rem;
+      font-size: 0.9rem;
     }
 
     .title-box {
       padding: 0.5rem;
-      font-size: 0.9rem;
     }
 
     .c-box {
       background: white;
-      border-radius: 0.5rem;
 
       .x-header {
         display: flex;
         justify-content: space-between;
         padding: 0.7rem 3rem;
-        border-bottom: 1px #e6e6e6 solid;
       }
 
       .x-body {
         .x-body-item {
           display: flex;
           align-items: center;
-          justify-content: space-between;
-          padding: 0.7rem 0.5rem;
-          border-bottom: 1px #e6e6e6 solid;
+          padding: 0.5rem;
 
           .y-item-left {
             position: relative;
@@ -168,6 +186,8 @@ const onClickItem1 = (e) => {
               left: 0.2rem;
               color: #578fff;
 
+
+
             }
 
             .m-left-iType {
@@ -180,12 +200,41 @@ const onClickItem1 = (e) => {
               padding: 0 0.2rem;
             }
           }
-          .y-item-right {
-            padding-right: 3rem;
-          }
         }
       }
     }
+
+    .c-info {
+      background: white;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .t-switch {
+      padding: 0.3rem 0.5rem;
+      display: flex;
+      align-items: center;
+      background: white;
+      margin: 0.5rem 0;
+      border-radius: 0.5rem;
+
+      .t-switch-title {
+        padding-right: 0.54rem;
+      }
+    }
+
+    .c-form {
+
+      .c-form-form {
+        background: white;
+      }
+
+      .c-form-area {
+        padding: 0.5rem;
+        background: white;
+      }
+    }
+
   }
 }
 </style>
